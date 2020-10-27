@@ -1,0 +1,21 @@
+﻿<Window x:Class="ZzaDashboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Customers="clr-namespace:ZzaDashboard.Customers"
+        xmlns:Products="clr-namespace:ZzaDashboard.Products"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Customers:CustomerEditView Grid.Column="0"  HorizontalAlignment="Left"
+                                    Margin="4,35,20,0"
+                                    VerticalAlignment="Top" />
+
+        <Products:ProductsView Grid.Column="1" HorizontalAlignment="Left"  Margin="14,35,20,0"  VerticalAlignment="Top" />
+    </Grid>
+</Window>

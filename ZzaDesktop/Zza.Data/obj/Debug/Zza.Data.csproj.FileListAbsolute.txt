@@ -1,0 +1,11 @@
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\bin\Debug\Zza.Data.dll.config
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\bin\Debug\Zza.Data.dll
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\bin\Debug\Zza.Data.pdb
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\bin\Debug\EntityFramework.dll
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\bin\Debug\EntityFramework.xml
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\obj\Debug\Zza.Data.csproj.CoreCompileInputs.cache
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\obj\Debug\Zza.Data.csproj.CopyComplete
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\obj\Debug\Zza.Data.dll
+C:\Users\OLAMIDE ONAKOYA\Downloads\wpf-mvvm-in-depth\06\demos\before\ZzaDesktop\Zza.Data\obj\Debug\Zza.Data.pdb
