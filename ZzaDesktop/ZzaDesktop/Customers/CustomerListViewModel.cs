@@ -20,6 +20,16 @@ namespace ZzaDesktop.Customers
             AddCustomerCommand = new RelayCommand(OnAddCustomer);
             EditCustomerCommand = new RelayCommand<Customer>(OnEditCustomer);
             ClearSearchCommand = new RelayCommand(OnClearSearch);
+            DeleteCommand = new RelayCommand<Guid>(OnDelete);
+        }
+
+        private async void OnDelete(Guid customerId)
+        {
+            var customer = _allCustomers.FirstOrDefault(c => c.Id == customerId);
+            _allCustomers.Remove(customer);
+            Customers = new ObservableCollection<Customer>(_allCustomers);
+            await repo.DeleteCustomerAsync(customerId);
+            return;
         }
 
         private void OnClearSearch()
@@ -73,6 +83,7 @@ namespace ZzaDesktop.Customers
         public RelayCommand<Customer> EditCustomerCommand { get; private set; }
         public RelayCommand AddCustomerCommand { get; private set; }
         public RelayCommand ClearSearchCommand { get; private set; }
+        public RelayCommand<Guid> DeleteCommand { get; private set; }
 
         //use to pass info the parent
         public event Action<Guid> PlaceOlderRequested = delegate { };
