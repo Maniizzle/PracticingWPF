@@ -16,12 +16,20 @@
     </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
-
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid>
-            <Button Content="Add Customer" Command="{Binding AddCustomerCommand}" HorizontalAlignment="Left" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button Content="Add Customer" Grid.Column="0" Command="{Binding AddCustomerCommand}" HorizontalAlignment="Left" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                <Label Content="Search:" />
+                <TextBox Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}" Width="150" />
+                <Button Content="X" Command="{Binding ClearSearchCommand}" />
+            </StackPanel>
         </Grid>
         <DataGrid ItemsSource="{Binding Customers}"
         AutoGenerateColumns="False"

@@ -11,26 +11,68 @@ namespace ZzaDesktop.Customers
 {
     public class CustomerListViewModel : BindableBase
     {
-        public ICustomersRepository repo = new CustomersRepository();
+        public ICustomersRepository repo;// = new CustomersRepository();
 
-        public CustomerListViewModel()
+        public CustomerListViewModel(ICustomersRepository repository)
         {
+            repo = repository;
             PlaceOrderCommand = new RelayCommand<Customer>(OnPLaceOrder);
             AddCustomerCommand = new RelayCommand(OnAddCustomer);
             EditCustomerCommand = new RelayCommand<Customer>(OnEditCustomer);
+            ClearSearchCommand = new RelayCommand(OnClearSearch);
+        }
+
+        private void OnClearSearch()
+        {
+            SearchInput = null;
         }
 
         private ObservableCollection<Customer> customers;
 
+        /// <summary>
+        /// customers that respond to filter request
+        /// </summary>
         public ObservableCollection<Customer> Customers
         {
             get { return customers; }
             set { SetProperty(ref customers, value); }
         }
 
+        private string _searchInput;
+
+        /// <summary>
+        /// all the customers gotten from the datastore
+        /// </summary>
+        private List<Customer> _allCustomers;
+
+        public string SearchInput
+        {
+            get { return _searchInput; }
+            set
+            {
+                SetProperty(ref _searchInput, value);
+                FilterCustomers(_searchInput);
+            }
+        }
+
+        private void FilterCustomers(string searchInput)
+        {
+            if (string.IsNullOrWhiteSpace(searchInput))
+            {
+                Customers = new ObservableCollection<Customer>(_allCustomers);
+                return;
+            }
+            else
+            {
+                Customers = new ObservableCollection<Customer>(_allCustomers.Where(c => c.FullName.ToLower().Contains(searchInput)));
+            }
+            throw new NotImplementedException();
+        }
+
         public RelayCommand<Customer> PlaceOrderCommand { get; private set; }
         public RelayCommand<Customer> EditCustomerCommand { get; private set; }
         public RelayCommand AddCustomerCommand { get; private set; }
+        public RelayCommand ClearSearchCommand { get; private set; }
 
         //use to pass info the parent
         public event Action<Guid> PlaceOlderRequested = delegate { };
@@ -41,7 +83,8 @@ namespace ZzaDesktop.Customers
 
         public async void LoadCustomers()
         {
-            Customers = new ObservableCollection<Customer>(await repo.GetCustomersAsync());
+            _allCustomers = await repo.GetCustomersAsync();
+            Customers = new ObservableCollection<Customer>(_allCustomers);
         }
 
         private void OnPLaceOrder(Customer customer)
