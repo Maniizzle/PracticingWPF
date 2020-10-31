@@ -3,9 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ZzaDesktop"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:cust="clr-namespace:ZzaDesktop.Customers"
+        xmlns:order="clr-namespace:ZzaDesktop.Orders"
+        xmlns:prep="clr-namespace:ZzaDesktop.OrderPrep"
+
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+
+            <DataTemplate DataType="{x:Type cust:CustomerListViewModel}">
+                <cust:CustomerListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type order:OrderViewModel}">
+                <order:OrderView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type prep:OrderPrepViewModel}">
+                <prep:OrderPrepView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type cust:AddEditCustomerViewModel}">
+                <cust:AddEditCustomerView />
+            </DataTemplate>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />

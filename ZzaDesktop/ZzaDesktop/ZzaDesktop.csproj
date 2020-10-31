@@ -192,8 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BindableBase.cs" />
     <Compile Include="Converters\NegatableBooleanToVisibilityConverter.cs" />
+    <Compile Include="Core\BindableBase.cs" />
+    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Core\ValidatableBindableBase.cs" />
     <Compile Include="Customers\AddEditCustomerView.xaml.cs">
       <DependentUpon>AddEditCustomerView.xaml</DependentUpon>
     </Compile>
@@ -213,12 +215,10 @@
       <DependentUpon>OrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Orders\OrderViewModel.cs" />
-    <Compile Include="RelayCommand.cs" />
     <Compile Include="Services\CustomersRepository.cs" />
     <Compile Include="Services\ICustomersRepository.cs" />
     <Compile Include="Services\IOrdersRepository.cs" />
     <Compile Include="Services\OrdersRepository.cs" />
-    <Compile Include="ValidatableBindableBase.cs" />
     <Page Include="Customers\AddEditCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

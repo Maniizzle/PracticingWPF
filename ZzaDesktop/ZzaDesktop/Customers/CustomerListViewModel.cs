@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Zza.Data;
+using ZzaDesktop.Core;
 using ZzaDesktop.Services;
 
 namespace ZzaDesktop.Customers

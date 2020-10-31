@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Photos\BigFourSummerHeat.png" />
+    <None Remove="Assets\Photos\BisonBadlandsChillin.png" />
+    <None Remove="Assets\Photos\GiantSlabInOregon.png" />
+    <None Remove="Assets\Photos\LakeAnnMushroom.png" />
+    <None Remove="Images\full-image.jpg" />
+    <None Remove="Images\login.png" />
+    <None Remove="Images\lpos-login.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.3.2" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.8.0" />
+    <PackageReference Include="MahApps.Metro.Resources" Version="0.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Photos\BigFourSummerHeat.png" />
+    <Resource Include="Assets\Photos\BisonBadlandsChillin.png" />
+    <Resource Include="Assets\Photos\GiantSlabInOregon.png" />
+    <Resource Include="Assets\Photos\LakeAnnMushroom.png" />
+    <Resource Include="Images\full-image.jpg" />
+    <Resource Include="Images\login.png" />
+  </ItemGroup>
+
+</Project>
