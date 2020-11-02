@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomWPF
+namespace CustomWPF.Core
 {
     public class ValidatableBindableBase : BindableBase, INotifyDataErrorInfo
     {

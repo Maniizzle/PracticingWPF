@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 
-namespace CustomWPF
+namespace CustomWPF.Core
 {
     public class RelayCommand : ICommand
     {

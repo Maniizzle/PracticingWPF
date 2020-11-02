@@ -1,5 +1,6 @@
 ﻿<UserControl
-    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" x:Class="CustomWPF.Views.TestHamburger"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    x:Class="CustomWPF.Views.TestHamburger"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

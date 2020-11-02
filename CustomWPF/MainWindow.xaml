@@ -5,25 +5,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:harm="clr-namespace:CustomWPF.Views"
+             xmlns:flyout="clr-namespace:CustomWPF.ViewModel"
         xmlns:local="clr-namespace:CustomWPF"
+    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+     Dialog:DialogParticipation.Register="{Binding}"
         mc:Ignorable="d"
         Title="MainWindow" Height="425" Width="800">
 
-    <Window.DataContext>
-        <local:MainWindowViewModel />
-    </Window.DataContext>
-    <Window.Resources>
+    <Controls:MetroWindow.Resources>
+        <Style x:Key="CustomFlyoutStyle"
+               BasedOn="{StaticResource {x:Type Controls:Flyout}}"
+               TargetType="{x:Type Controls:Flyout}">
+            <Setter Property="Header" Value="{Binding Header}" />
+            <Setter Property="IsOpen" Value="{Binding IsOpen}" />
+            <Setter Property="Position" Value="{Binding Position}" />
+            <Setter Property="Theme" Value="{Binding Theme}" />
+        </Style>
+        <DataTemplate DataType="{x:Type flyout:FlyOutViewModel}">
+            <harm:FlyOutView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type harm:TestHarmburgerViewModel}">
             <harm:TestHamburger />
         </DataTemplate>
-    </Window.Resources>
-
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl ItemContainerStyle="{StaticResource CustomFlyoutStyle}">
+            <Controls:Flyout   x:Name="_flyOutViewModel">
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Width="100" Height="50" HorizontalAlignment="Right" Content="GotoView" Command="{Binding NavCommand}" CommandParameter="HarmbugerCommand" Margin="20"></Button>
+
+        <Grid Grid.Column="0">
+            <Button  Width="100" Height="50" HorizontalAlignment="Right" Content="GotoView" Command="{Binding NavCommand}" CommandParameter="hamburger" Margin="20"></Button>
+            <Button  Width="100" Height="50" HorizontalAlignment="Right" Content="GotoFlyout" Command="{Binding NavCommand}" VerticalAlignment="Top" CommandParameter="flyout" Margin="20"></Button>
+            <Button  Width="100" Height="50" HorizontalAlignment="Right" Content="ShowDialog" Command="{Binding FlyOutCommand}" VerticalAlignment="Bottom" CommandParameter="flyout" Margin="20"></Button>
+            <Button  Width="50" Height="70" HorizontalAlignment="Right" Content="ShowDialog" Click="ShowLoginDialog" VerticalAlignment="Bottom" CommandParameter="flyout" Margin="24,75"></Button>
+            <!--<MenuItem Click="ShowLoginDialog" Header="Show LoginDialog" />-->
+        </Grid>
 
         <!--<Image Source="/CustomWPF;component/Images/login.png" Stretch="Fill" Grid.Column="0" />-->
         <!--<StackPanel Orientation="Horizontal" Grid.Column="1">
@@ -32,7 +55,8 @@
         </StackPanel>-->
         <!--<ContentControl Content="" Grid.Column="1" />-->
         <Grid Grid.Column="1">
-        <ContentControl Content="{Binding CurrentViewModel}" />
+
+            <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>
     </Grid>
 </Controls:MetroWindow>

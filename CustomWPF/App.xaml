@@ -1,13 +1,17 @@
 ﻿<Application x:Class="CustomWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:harm="clr-namespace:CustomWPF.Views"
+             xmlns:views="clr-namespace:CustomWPF.Views"
              xmlns:local="clr-namespace:CustomWPF"
+             xmlns:flyout="clr-namespace:CustomWPF.ViewModel"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
 
+            <DataTemplate DataType="{x:Type flyout:FlyOutViewModel}">
+                <views:FlyOutView />
+            </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
